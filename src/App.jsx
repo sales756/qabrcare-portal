@@ -41,7 +41,7 @@ const QURANIC_TEXTS = {
   fatiha: {
     title: "Surah Al-Fatiha (The Opening)",
     verses: [
-      { ar: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", en: "In the name of Allah, the Entirely Merciful, the Especially Merciful." },
+      { ar: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّمِيمِ", en: "In the name of Allah, the Entirely Merciful, the Especially Merciful." },
       { ar: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ", en: "[All] praise is [due] to Allah, Lord of the worlds -" },
       { ar: "الرَّحْمَٰنِ الرَّحِيمِ", en: "The Entirely Merciful, the Especially Merciful," },
       { ar: "مَالِكِ يَوْمِ الدِّينِ", en: "Sovereign of the Day of Recompense." },
@@ -508,12 +508,12 @@ function SearchTab({ onLocate, records, switchTab }) {
       <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 shadow-inner">
         <div className="flex items-center justify-between">
           <h2 className="text-[10px] font-bold tracking-wider text-slate-400 uppercase">Search Filters</h2>
-          <button onClick={() => switchTab('uploader')} className="text-[11px] text-emerald-400 hover:underline flex items-center gap-1 font-semibold">
+          <button onClick={() => switchTab('uploader')} className="text-[11px] text-emerald-400 hover:underline flex items-center gap-1 font-semibold font-sans">
             <i className="fa-solid fa-camera"></i> Edge AI Scan
           </button>
         </div>
         
-        <div className="space-y-1">
+        <div className="space-y-1 text-left">
           <label className="text-[10px] text-slate-400 font-semibold">Deceased Name / Surname / Lineage Keyword</label>
           <div className="relative">
             <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-500">
@@ -529,7 +529,7 @@ function SearchTab({ onLocate, records, switchTab }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-2.5">
+        <div className="grid grid-cols-2 gap-2.5 text-left">
           <div className="space-y-1">
             <label className="text-[10px] text-slate-400 font-semibold">Grave Number</label>
             <input 
@@ -555,7 +555,7 @@ function SearchTab({ onLocate, records, switchTab }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-2.5">
+        <div className="grid grid-cols-2 gap-2.5 text-left">
           <div className="space-y-1">
             <label className="text-[10px] text-slate-400 font-semibold">Gregorian DOD</label>
             <input 
@@ -583,7 +583,7 @@ function SearchTab({ onLocate, records, switchTab }) {
           <h3 className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Search Results ({filtered.length})</h3>
           <button 
             onClick={() => {setNameQuery(''); setQabrQuery(''); setRegionQuery(''); setDateQuery('');}} 
-            className="text-[11px] text-emerald-400 hover:text-emerald-300 font-semibold"
+            className="text-[11px] text-emerald-400 hover:text-emerald-300 font-semibold font-sans"
           >
             <i className="fa-solid fa-rotate-left mr-1"></i>Reset
           </button>
@@ -603,13 +603,13 @@ function SearchTab({ onLocate, records, switchTab }) {
                 <div 
                   key={rec.id} 
                   onClick={() => onLocate({lat: rec.lat, lng: rec.lng})} 
-                  className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 hover:border-emerald-600 transition cursor-pointer shadow-md group"
+                  className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 hover:border-emerald-600 transition cursor-pointer shadow-md text-left group"
                 >
                   <div className="flex items-start justify-between text-xs">
                     <div>
                       <h4 className="font-bold text-slate-200 group-hover:text-emerald-400 transition">{rec.name} {rec.surname}</h4>
                       <p className="text-emerald-500 font-mono font-bold text-[10px] mt-0.5">Qabr No: {rec.qabr}</p>
-                      <p className="text-[10px] text-slate-400 mt-1 flex items-center gap-1.5">
+                      <p className="text-[10px] text-slate-400 mt-1 flex items-center gap-1.5 font-sans">
                         <i className="fa-solid fa-tree text-emerald-600"></i> {cem?.name} ({cem?.city})
                       </p>
                     </div>
@@ -707,7 +707,6 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
       const result = await response.json();
       const content = result.choices?.[0]?.message?.content;
       
-      // Attempt clean extraction of json out of potential markdown blocks
       const cleaned = content.replace(/```json/g, '').replace(/```/g, '').trim();
       const parsedText = JSON.parse(cleaned);
 
@@ -761,7 +760,7 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
           <i className="fa-solid fa-microchip text-xl"></i>
           <h2 className="font-bold text-sm text-slate-200">On-Device Edge OCR Scanner</h2>
         </div>
-        <p className="text-[11px] text-slate-400 leading-relaxed font-sans">
+        <p className="text-[11px] text-slate-400 leading-relaxed font-sans text-left">
           Runs local machine learning character recognition to help digitize eroded headstones.
         </p>
 
@@ -788,7 +787,7 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
         )}
 
         {base64Image && scanned && (
-          <div className="bg-slate-900 p-3 rounded-lg border border-slate-800 space-y-2">
+          <div className="bg-slate-900 p-3 rounded-lg border border-slate-800 space-y-2 text-left">
             <div className="flex items-center justify-between">
               <span className="text-[10px] text-emerald-400 font-bold uppercase"><i className="fa-solid fa-brain mr-1"></i> OpenRouter Vision Deciphering</span>
             </div>
@@ -809,10 +808,10 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
         )}
 
         {scanned && !loading && (
-          <form className="space-y-3.5 pt-2" onSubmit={handleCommit}>
+          <form className="space-y-3.5 pt-2 text-left" onSubmit={handleCommit}>
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-[10px] text-slate-400">First Name</label>
+                <label className="text-[10px] text-slate-400 font-semibold">First Name</label>
                 <input 
                   type="text" 
                   value={ocrData.name} 
@@ -822,7 +821,7 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
                 />
               </div>
               <div>
-                <label className="text-[10px] text-slate-400">Surname</label>
+                <label className="text-[10px] text-slate-400 font-semibold">Surname</label>
                 <input 
                   type="text" 
                   value={ocrData.surname} 
@@ -835,7 +834,7 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
 
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-[10px] text-slate-400">Assigned Qabr ID</label>
+                <label className="text-[10px] text-slate-400 font-semibold">Assigned Qabr ID</label>
                 <input 
                   type="text" 
                   value={ocrData.qabr} 
@@ -845,7 +844,7 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
                 />
               </div>
               <div>
-                <label className="text-[10px] text-slate-400">Death Date</label>
+                <label className="text-[10px] text-slate-400 font-semibold">Death Date</label>
                 <input 
                   type="date" 
                   value={ocrData.dod} 
@@ -858,7 +857,7 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
 
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-[10px] text-slate-400">Islamic Hijri Date</label>
+                <label className="text-[10px] text-slate-400 font-semibold">Islamic Hijri Date</label>
                 <input 
                   type="text" 
                   readOnly 
@@ -867,7 +866,7 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
                 />
               </div>
               <div>
-                <label className="text-[10px] text-slate-400">Coordinates</label>
+                <label className="text-[10px] text-slate-400 font-semibold">Coordinates</label>
                 <input 
                   type="text" 
                   readOnly 
@@ -878,7 +877,7 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
             </div>
 
             <div>
-              <label className="text-[10px] text-slate-400">Epitaph/Lineage Transcription</label>
+              <label className="text-[10px] text-slate-400 font-semibold">Epitaph/Lineage Transcription</label>
               <textarea 
                 rows={2} 
                 value={ocrData.lineage} 
@@ -888,7 +887,7 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
               ></textarea>
             </div>
 
-            <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2 px-4 rounded-lg transition shadow-lg flex items-center justify-center gap-1.5 cursor-pointer">
+            <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 px-4 rounded-lg transition shadow-lg flex items-center justify-center gap-1.5 cursor-pointer font-sans">
               <i className="fa-solid fa-check-double"></i> Validate & Add to Live Map
             </button>
           </form>
@@ -981,7 +980,7 @@ function CleanTab() {
 
   return (
     <div className="p-5 space-y-5 animate-fadeIn">
-      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
+      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4 text-left">
         <div className="flex items-center space-x-2 text-emerald-400">
           <i className="fa-solid fa-broom-ball text-xl"></i>
           <div>
@@ -1001,7 +1000,7 @@ function CleanTab() {
           </div>
         </div>
 
-        <form className="space-y-3" onSubmit={generateInvoice}>
+        <form className="space-y-3 font-sans" onSubmit={generateInvoice}>
           <div className="grid grid-cols-2 gap-2.5">
             <div>
               <label className="text-[10px] text-slate-400 font-semibold uppercase">Quantity</label>
@@ -1114,7 +1113,7 @@ function CleanTab() {
 
           <div className="space-y-2 border-t border-slate-800 pt-3">
             <div>
-              <label className="text-[10px] text-slate-400">Target Grave/Plot details or Sponsor message</label>
+              <label className="text-[10px] text-slate-400 font-semibold">Target Grave/Plot details or Sponsor message</label>
               <input 
                 type="text" 
                 value={targetDetails} 
@@ -1126,7 +1125,7 @@ function CleanTab() {
             </div>
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-[10px] text-slate-400">Your Full Name</label>
+                <label className="text-[10px] text-slate-400 font-semibold">Your Full Name</label>
                 <input 
                   type="text" 
                   value={clientName} 
@@ -1137,7 +1136,7 @@ function CleanTab() {
                 />
               </div>
               <div>
-                <label className="text-[10px] text-slate-400">Email Address</label>
+                <label className="text-[10px] text-slate-400 font-semibold">Email Address</label>
                 <input 
                   type="email" 
                   value={clientEmail} 
@@ -1168,7 +1167,7 @@ function CleanTab() {
           <div className="grid grid-cols-2 gap-2">
             <button 
               type="submit" 
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2 px-3 rounded-lg transition shadow-lg flex items-center justify-center gap-1.5 cursor-pointer"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 px-3 rounded-lg transition shadow-lg flex items-center justify-center gap-1.5 cursor-pointer font-sans"
             >
               <i className="fa-brands fa-whatsapp"></i> Order & WhatsApp Sync
             </button>
@@ -1178,7 +1177,7 @@ function CleanTab() {
                 href={costs.yocoUrl} 
                 target="_blank" 
                 rel="noreferrer" 
-                className="bg-slate-800 hover:bg-slate-700 text-emerald-400 font-bold text-xs py-2 px-3 rounded-lg border border-slate-700 transition flex items-center justify-center gap-1.5 cursor-pointer text-center"
+                className="bg-slate-800 hover:bg-slate-700 text-emerald-400 font-bold text-xs py-2.5 px-3 rounded-lg border border-slate-700 transition flex items-center justify-center gap-1.5 cursor-pointer text-center font-sans"
               >
                 <i className="fa-solid fa-credit-card"></i> Pay via Yoco Card
               </a>
@@ -1186,7 +1185,7 @@ function CleanTab() {
               <button 
                 type="button"
                 onClick={() => showCustomToast("Direct EFT Instruction", "Account details: Standard Bank, Branch Code: 051001, Acc: 1021435212. Please use your Surname & Grave ID as reference.", "info")} 
-                className="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs py-2 px-3 rounded-lg border border-slate-700 transition flex items-center justify-center gap-1.5 cursor-pointer"
+                className="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs py-2.5 px-3 rounded-lg border border-slate-700 transition flex items-center justify-center gap-1.5 cursor-pointer font-sans"
               >
                 <i className="fa-solid fa-building-columns"></i> View EFT Details
               </button>
@@ -1221,7 +1220,7 @@ function CleanTab() {
               <button 
                 type="button"
                 onClick={() => handleOfflinePhotoUpload('before')} 
-                className="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-[10px] px-2 py-1 rounded cursor-pointer"
+                className="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-[10px] px-2 py-1 rounded cursor-pointer font-sans"
               >
                 <i className="fa-solid fa-image mr-1"></i> Snap Photo
               </button>
@@ -1239,7 +1238,7 @@ function CleanTab() {
               <button 
                 type="button"
                 onClick={() => handleOfflinePhotoUpload('after')} 
-                className="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-[10px] px-2 py-1 rounded cursor-pointer"
+                className="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-[10px] px-2 py-1 rounded cursor-pointer font-sans"
               >
                 <i className="fa-solid fa-image mr-1"></i> Snap Photo
               </button>
@@ -1307,7 +1306,7 @@ function AssistantTab({ openRouterKey, selectedChatModel }) {
   return (
     <div className="p-5 space-y-5 animate-fadeIn">
       {/* QURANIC SELECTOR */}
-      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4">
+      <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4 text-left">
         <div className="flex items-center space-x-3 text-emerald-400">
           <i className="fa-solid fa-book-quran text-2xl"></i>
           <h2 className="font-bold text-slate-100 text-sm">Spiritual Library & Duas</h2>
@@ -1345,7 +1344,7 @@ function AssistantTab({ openRouterKey, selectedChatModel }) {
 
       {/* AI COMPANION */}
       <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col h-[350px] justify-between">
-        <div className="flex items-center space-x-2 border-b border-slate-800 pb-2 mb-2">
+        <div className="flex items-center space-x-2 border-b border-slate-800 pb-2 mb-2 text-left">
           <i className="fa-solid fa-circle-question text-emerald-400"></i>
           <h3 className="font-bold text-xs text-slate-200">Burial Guide AI ({selectedChatModel.split('/')[1]?.split(':')[0] || 'Qwen'})</h3>
         </div>
@@ -1413,7 +1412,7 @@ function LegalTab() {
           </ul>
         </div>
 
-        <div className="border-t border-slate-800 pt-4 space-y-2">
+        <div className="border-t border-slate-800 pt-4 space-y-2 text-left">
           <h3 className="text-xs font-bold text-slate-300 uppercase tracking-wide">Legal Disclosures</h3>
           <div className="grid grid-cols-1 gap-2">
             <button 
@@ -1449,7 +1448,7 @@ function LegalTab() {
         <p className="text-xs text-emerald-100 leading-relaxed">
           Burial societies and Masjids can integrate their registries into the QabrCare network. Contact us at support@mrkolapie.com or sales@mrkolapie.com.
         </p>
-        <form onSubmit={handlePartnerSubmit} className="space-y-3">
+        <form onSubmit={handlePartnerSubmit} className="space-y-3 font-sans">
           <input 
             type="text" 
             name="society" 
@@ -1464,7 +1463,7 @@ function LegalTab() {
             placeholder="Representative Email Address" 
             className="w-full bg-slate-900 border border-slate-700 rounded-xl py-2 px-3 text-xs text-slate-100 focus:outline-none" 
           />
-          <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded-xl transition text-xs shadow-md cursor-pointer">
+          <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-xl transition text-xs shadow-md cursor-pointer font-sans">
             Submit Integration Request
           </button>
         </form>
