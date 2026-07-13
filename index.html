@@ -1,23 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QabrCare SA - Muslim Cemetery Portal</title>
-
-    <!-- Tailwind CSS (Instant Styling Engine) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- FontAwesome CSS (Icons Library) -->
+    
+    <!-- SEO & Search Console Verification -->
+    <title>QabrCare South Africa - Islamic Cemetery Map Finder</title>
+    <meta name="description" content="A corporate project of MrKolapie Pty Ltd ™. Search graves, view maps, purchase verified cleanups at Lenasia Avalon Cemetery." />
+    
+    <!-- FontAwesome Core Icons (Solid, Regular, Brands) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-    <!-- Leaflet CSS & JS (Interactive Map Cartography Engine) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Leaflet Cartography Mapping CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    
+    <!-- Google Noto Fonts (Sans & Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS (Play CDN for rapid loading) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Noto Sans"', 'sans-serif'],
+              serif: ['"Noto Sans Arabic"', 'serif'],
+            }
+          }
+        }
+      }
+    </script>
   </head>
-  <body>
+  <body class="bg-slate-950 text-slate-100">
     <div id="root"></div>
+    
+    <!-- Leaflet Cartography Mapping JS Engine -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- React Entry Script Mount -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
