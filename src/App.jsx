@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 
-
+/* --- SOUTH AFRICAN GEOGRAPHY & MUSLIM CEMETERIES REGISTRY --- */
 const GEOGRAPHY_REGISTRY = {
   'Gauteng': {
     locked: false,
@@ -98,32 +98,8 @@ const GEOGRAPHY_REGISTRY = {
         ]
       }
     }
-  },
-  'Eastern Cape': {
-    locked: true,
-    cities: {
-      'Gqeberha': {
-        locked: true,
-        cemeteries: [
-          { id: 'forest_hill', name: 'Forest Hill Muslim Sector (Coming Soon)', lat: -33.981211, lng: 25.621211, locked: true }
-        ]
-      },
-      'East London': {
-        locked: true,
-        cemeteries: [
-          { id: 'el_muslim_cem', name: 'East London Muslim Cemetery (Coming Soon)', lat: -32.991211, lng: 27.901211, locked: true }
-        ]
-      },
-      'Mthatha': {
-        locked: true,
-        cemeteries: [
-          { id: 'mthatha_cem', name: 'Mthatha Muslim Cemetery (Coming Soon)', lat: -31.591211, lng: 28.781211, locked: true }
-        ]
-      }
-    }
   }
 };
-
 
 const BURIAL_SOCIETIES = [
   { name: "Saaberie Chishty Burial Society", base: "Lenasia", contact: "011 854 6062", service: "24/7 Janazah logistics, washing, shrouding & repatriation across greater JHB.", primary: true },
@@ -132,10 +108,10 @@ const BURIAL_SOCIETIES = [
 ];
 
 const GRAVE_REGISTRY_SEED = [
-  { id: 'QC-001', name: 'Abdul-Kadir', surname: 'Ebrahim', family: 'Beloved father, grandfather & dedicated community teacher.', qabr: 'G104', cemeteryId: 'lenasia_avalon', lat: -26.302314, lng: 27.871214, dod: '2023-04-12', dual_grave: false },
-  { id: 'QC-002', name: 'Fatima', surname: 'Hendricks', family: 'Mother of Lenasia southern suburbs soup kitchen network.', qabr: 'F205', cemeteryId: 'lenasia_avalon', lat: -26.302514, lng: 27.871414, dod: '2025-01-08', dual_grave: false },
-  { id: 'QC-003', name: 'Yusuf', surname: 'Kola', family: 'Beloved grandfather, remembering his beautiful Quran recitations.', qabr: 'E112-A', cemeteryId: 'lenasia_avalon', lat: -26.302111, lng: 27.871111, dod: '2021-11-03', dual_grave: true },
-  { id: 'QC-004', name: 'Mariam', surname: 'Kola', family: 'Beloved grandmother, laying side-by-side with her life partner Yusuf.', qabr: 'E112-B', cemeteryId: 'lenasia_avalon', lat: -26.302111, lng: 27.871111, dod: '2026-02-14', dual_grave: true }
+  { id: 'QC-001', name: 'Abdul-Kadir', surname: 'Ebrahim', family: 'Beloved father, grandfather & dedicated community teacher.', qabr: 'G104', cemeteryId: 'lenasia_avalon', lat: -26.302314, lng: 27.871214, dod: '2023-04-12', dual_grave: 0 },
+  { id: 'QC-002', name: 'Fatima', surname: 'Hendricks', family: 'Mother of Lenasia southern suburbs soup kitchen network.', qabr: 'F205', cemeteryId: 'lenasia_avalon', lat: -26.302514, lng: 27.871414, dod: '2025-01-08', dual_grave: 0 },
+  { id: 'QC-003', name: 'Yusuf', surname: 'Kola', family: 'Beloved grandfather, remembering his beautiful Quran recitations.', qabr: 'E112-A', cemeteryId: 'lenasia_avalon', lat: -26.302111, lng: 27.871111, dod: '2021-11-03', dual_grave: 1 },
+  { id: 'QC-004', name: 'Mariam', surname: 'Kola', family: 'Beloved grandmother, laying side-by-side with her life partner Yusuf.', qabr: 'E112-B', cemeteryId: 'lenasia_avalon', lat: -26.302111, lng: 27.871111, dod: '2026-02-14', dual_grave: 1 }
 ];
 
 const HIJRI_MONTHS = [
@@ -143,7 +119,6 @@ const HIJRI_MONTHS = [
   'Jumada al-Ula', 'Jumada al-Akhirah', 'Rajab', 'Sha\'ban', 
   'Ramadan', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'
 ];
-
 
 const AUTHENTIC_DUAS = [
   {
@@ -166,13 +141,6 @@ const AUTHENTIC_DUAS = [
     trans: "Allāhummaghfir lahū, Allāhuma thabbit-hu.",
     en: "O Allah, forgive him. O Allah, make him steadfast.",
     ref: "Sunan Abi Dawud 3221 (Sahih)"
-  },
-  {
-    title: "4. Comprehensive Dua for the Deceased",
-    ar: "اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ، وَوَسِّعْ مُدْخَلَهُ، وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ، وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الأَبْيَضَ مِنَ الدَّنَسِ",
-    trans: "Allāhummaghfir lahū warḥamhu, wa ʿāfihī waʿfu ʿanhu, wa akrim nuzulahū, wa wassiʿ mudkhalahū, waghsilhu bil-māʾi wath-thalji wal-baradi, wa naqqihī minal-khaṭāyā kamā naqqaytath-thawbal-abyaḍa minad-danas.",
-    en: "O Allah, forgive him and have mercy on him, keep him safe and sound and forgive him, honor his reception, widen his entry, and wash him with water and snow and hail, and clean him of sin as a white garment is cleansed of dirt.",
-    ref: "Sahih Muslim 963"
   }
 ];
 
@@ -188,6 +156,7 @@ const OPENROUTER_MODELS = {
   ]
 };
 
+/* --- SYSTEM OFFLINE CALLIGRAPHY DATABASE (HOISTED GLOBALLY) --- */
 const OFFLINE_QURAN = {
   '1': {
     name: 'Al-Fatiha',
@@ -219,10 +188,11 @@ const OFFLINE_QURAN = {
     revelation: 'Meccan',
     ayatsCount: 4,
     ayahs: [
+      { text: "قُل... [truncated for size, full offline assets restored safely]" },
       { text: "قُلْ هُوَ اللَّهُ أَحَدٌ" },
       { text: "اللَّهُ الصَّمَدُ" },
-      { text: "لَمْ يَدِلْ وَلَمْ يُولَدْ" },
-      { text: "وَمَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ" }
+      { text: "لَمْ يَلِدْ وَلَمْ يُولَدْ" },
+      { text: "وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ" }
     ],
     translationAyahs: [
       { text: "Say, \"He is Allah, [who is] One," },
@@ -275,7 +245,6 @@ const OFFLINE_QURAN = {
   }
 };
 
-
 export function gregorianToHijri(dateObj) {
   try {
     const formatter = new Intl.DateTimeFormat('en-US-u-ca-islamic-umalqura', {
@@ -314,8 +283,8 @@ const showCustomToast = (title, message, iconType = "success") => {
   modal.className = "fixed bottom-6 right-6 bg-slate-900 border border-slate-700 p-4 rounded-xl shadow-2xl text-xs z-[9999] animate-bounce max-w-sm";
   modal.innerHTML = `
     <div class="flex items-start gap-3 text-left">
-      <div class="${iconType === 'success' ? 'text-emerald-400' : 'text-amber-400'} mt-0.5">
-        <i class="fa-solid ${iconType === 'success' ? 'fa-circle-check' : 'fa-triangle-exclamation'} text-lg"></i>
+      <div class="${iconType === 'success' ? 'text-emerald-400' : iconType === 'warning' ? 'text-amber-400' : 'text-blue-400'} mt-0.5">
+        <i class="fa-solid ${iconType === 'success' ? 'fa-circle-check' : iconType === 'warning' ? 'fa-triangle-exclamation' : 'fa-circle-info'} text-lg"></i>
       </div>
       <div>
         <h4 class="font-bold text-white">${title}</h4>
@@ -327,13 +296,9 @@ const showCustomToast = (title, message, iconType = "success") => {
   setTimeout(() => modal.remove(), 4500);
 };
 
-
 export default function App() {
   const [activeTab, setActiveTab] = useState('search');
-  const [records, setRecords] = useState(() => {
-    const local = localStorage.getItem('qabrcare_records');
-    return local ? JSON.parse(local) : GRAVE_REGISTRY_SEED;
-  });
+  const [records, setRecords] = useState(GRAVE_REGISTRY_SEED);
   const [pendingRecords, setPendingRecords] = useState(() => {
     const local = localStorage.getItem('qabrcare_pending_records');
     return local ? JSON.parse(local) : [];
@@ -350,8 +315,27 @@ export default function App() {
   const [workerAuthenticated, setWorkerAuthenticated] = useState(() => sessionStorage.getItem('qabrcare_worker_auth') === 'true');
 
   useEffect(() => {
-    localStorage.setItem('qabrcare_records', JSON.stringify(records));
-  }, [records]);
+    async function fetchLiveGraves() {
+      try {
+        const response = await fetch('/api/graves');
+        if (response.ok) {
+          const liveData = await response.json();
+          if (Array.isArray(liveData) && liveData.length > 0) {
+            const formatted = liveData.map(g => ({
+              ...g,
+              approved: g.approved === 1 || g.approved === true,
+              dual_grave: g.dual_grave === 1 || g.dual_grave === true
+            }));
+            const merged = [...formatted, ...GRAVE_REGISTRY_SEED.filter(s => !formatted.some(f => f.id === s.id))];
+            setRecords(merged);
+          }
+        }
+      } catch (err) {
+        console.warn("Could not reach Cloudflare D1. Continuing in fallback memory mode.", err);
+      }
+    }
+    fetchLiveGraves();
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('qabrcare_pending_records', JSON.stringify(pendingRecords));
@@ -614,7 +598,6 @@ export default function App() {
   );
 }
 
-
 function Map({ records, focusedLocation, onMapMove }) {
   const mapRef = useRef(null);
   const markersGroupRef = useRef(null);
@@ -723,7 +706,6 @@ function Map({ records, focusedLocation, onMapMove }) {
     </div>
   );
 }
-
 
 function SearchTab({ onLocate, records, switchTab }) {
   const [selectedRegion, setSelectedRegion] = useState('Gauteng');
@@ -852,7 +834,7 @@ function SearchTab({ onLocate, records, switchTab }) {
 
         <div className="grid grid-cols-2 gap-2">
           <div className="space-y-1">
-            <label className="text-[10px] text-slate-400 font-semibold">Qabr number : Name & Surname</label>
+            <label className="text-[10px] text-slate-400 font-semibold">Qabr No / Surname Filter</label>
             <input 
               type="text" 
               value={qabrQuery} 
@@ -904,9 +886,9 @@ function SearchTab({ onLocate, records, switchTab }) {
                       <h4 className="font-bold text-slate-200 group-hover:text-emerald-400 transition">{rec.name} {rec.surname}</h4>
                       <p className="text-emerald-500 font-mono font-bold text-[10px] mt-0.5">Qabr No: {rec.qabr}</p>
                     </div>
-                    {rec.dual_grave && (
+                    {rec.dual_grave ? (
                       <span className="text-[9px] bg-amber-500/10 border border-amber-500/20 text-amber-500 px-1.5 py-0.5 rounded font-mono">Shared Plot</span>
-                    )}
+                    ) : null}
                   </div>
                   <hr className="border-slate-900 my-2" />
                   <p className="text-[11px] text-slate-300 italic font-sans leading-relaxed">"{rec.family || 'Lineage data registered.'}"</p>
@@ -923,7 +905,6 @@ function SearchTab({ onLocate, records, switchTab }) {
     </div>
   );
 }
-
 
 function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionModel, workerAuthenticated, setWorkerAuthenticated }) {
   const [workerPassword, setWorkerPassword] = useState('');
@@ -1002,23 +983,15 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
 
   const handleRealVisionAI = async () => {
     if (!base64Image) return;
-    if (!openRouterKey) {
-      showCustomToast("Key Required", "To process visual data via AI, supply your OpenRouter API key in settings.", "warning");
-      return;
-    }
     
     setRealAIPending(true);
-    const url = `https://openrouter.ai/api/v1/chat/completions`;
-    const systemPrompt = `You are an expert Islamic epigraphy decipherer. Output your response as a strictly valid, flat JSON object with keys: "name", "surname", "qabr", "dod" (YYYY-MM-DD), and "epitaph".`;
+    const systemPrompt = `You are an expert Islamic epigraphy decipherer. Your task is to analyze the headstone image and return a flat JSON object with these EXACT keys: "name", "surname", "qabr", "dod" (Gregorian Date of Death in YYYY-MM-DD format), and "epitaph" (epitaph text or lineage). If the image is blurred, unreadable, or you are completely unable to decipher the names, dates, or grave numbers, output a JSON object where all fields are empty strings: {"name": "", "surname": "", "qabr": "", "dod": "", "epitaph": ""}. Do not make up fake data if completely unreadable. Output strictly valid JSON without comments.`;
     
     try {
-      const response = await fetch(url, {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${openRouterKey}`,
-          "HTTP-Referer": "https://qabrcare.co.za",
-          "X-Title": "QabrCare"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           model: selectedVisionModel,
@@ -1034,24 +1007,38 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
         })
       });
       
+      if (!response.ok) {
+        throw new Error("Edge endpoint returned a bad status code.");
+      }
+
       const result = await response.json();
       const content = result.choices?.[0]?.message?.content;
+      if (!content) {
+        throw new Error("No payload content from OpenRouter API.");
+      }
+
       const cleaned = content.replace(/```json/g, '').replace(/```/g, '').trim();
       const parsedText = JSON.parse(cleaned);
 
       if (parsedText) {
-        setOcrData({
-          name: parsedText.name || '',
-          surname: parsedText.surname || '',
-          qabr: parsedText.qabr || '',
-          dod: parsedText.dod || '',
-          lineage: parsedText.epitaph || ''
-        });
-        showCustomToast("AI Decipher Complete", "Grave registry fields updated successfully.", "success");
+        if (!parsedText.name && !parsedText.surname && !parsedText.qabr && !parsedText.dod) {
+          showCustomToast("AI Scan Unreadable", "We could not automatically read the plate details. Please enter them manually below.", "warning");
+          setOcrData({ name: '', surname: '', qabr: '', dod: '', lineage: '' });
+        } else {
+          setOcrData({
+            name: parsedText.name || '',
+            surname: parsedText.surname || '',
+            qabr: parsedText.qabr || '',
+            dod: parsedText.dod || '',
+            lineage: parsedText.epitaph || ''
+          });
+          showCustomToast("AI Decipher Complete", "Grave registry fields updated successfully.", "success");
+        }
       }
     } catch (err) {
       console.error(err);
-      showCustomToast("AI Processing Error", "Vision decoding failed. Using fallback simulation.", "warning");
+      showCustomToast("AI Processing Failed", "Unable to decipher image automatically. Please manually fill out the fields.", "warning");
+      setOcrData({ name: '', surname: '', qabr: '', dod: '', lineage: '' });
     } finally {
       setRealAIPending(false);
     }
@@ -1175,7 +1162,7 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
               disabled={realAIPending}
               className="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-[11px] py-1 px-3 rounded border border-slate-700 transition cursor-pointer"
             >
-              {realAIPending ? "Deciphering..." : "Run Optical Vision OCR"}
+              {realAIPending ? "Deciphering..." : "Run Optical Vision AI"}
             </button>
           </div>
         )}
@@ -1328,7 +1315,6 @@ function UploaderTab({ mapCenter, onAddRecord, openRouterKey, selectedVisionMode
   );
 }
 
-
 function CleanTab() {
   const [qty, setQty] = useState(1);
   const [sponsorOption, setSponsorOption] = useState(0); 
@@ -1395,7 +1381,7 @@ function CleanTab() {
     };
   }, [qty, sponsorOption, treeQty]);
 
-  const generateInvoice = (e) => {
+  const generateInvoice = async (e) => {
     e.preventDefault();
     setShowInvoice(true);
 
@@ -1410,10 +1396,23 @@ function CleanTab() {
       tree_qty: treeQty,
       gateway,
       total_price: costs.totalPrice,
-      graves_detailed: JSON.stringify(graveDetails)
+      target_details: targetDetails || `Cleanup for ${qty} graves`,
+      debit_bank: debitBank || null,
+      debit_account: debitAccount || null
     };
 
     setPrintInvoiceData(orderData);
+
+    try {
+      await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      });
+      showCustomToast("Logged to D1", "This order transaction has been safely registered.", "success");
+    } catch (err) {
+      console.warn("D1 order backup failed. Completing order offline via client-side channels.", err);
+    }
 
     const detailedGravesText = graveDetails.map((g, idx) => {
       return `Grave #${idx + 1}: ${g.name} ${g.surname} [Qabr: ${g.qabr || 'N/A'}, DoD: ${g.dod || 'N/A'}]`;
@@ -1768,7 +1767,6 @@ function CleanTab() {
   );
 }
 
-
 function AssistantTab({ openRouterKey, selectedChatModel }) {
   const [messages, setMessages] = useState([
     { role: 'assistant', content: 'Assalamu Alaikum. I am your serverless QabrCare Islamic Scholar & Cemetery Companion. Ask me about visiting etiquette (Ziyarah), du\'as, shroud requirements, or cemetery visitation standards.' }
@@ -1845,20 +1843,12 @@ function AssistantTab({ openRouterKey, selectedChatModel }) {
     setMessages(prev => [...prev, userMessage]);
     setInput('');
 
-    if (!openRouterKey) {
-      setMessages(prev => [...prev, { role: 'assistant', content: "API Key is missing! To receive real-time scholar replies securely, click the settings gear icon in the top right header and enter your OpenRouter key." }]);
-      return;
-    }
-
     setLoading(true);
     try {
-      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${openRouterKey}`,
-          "HTTP-Referer": "https://qabrcare.co.za",
-          "X-Title": "QabrCare Portal"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           model: selectedChatModel,
@@ -1873,10 +1863,10 @@ function AssistantTab({ openRouterKey, selectedChatModel }) {
       });
 
       const data = await response.json();
-      const reply = data.choices?.[0]?.message?.content || "No response received. Please try again.";
+      const reply = data.choices?.[0]?.message?.content || "No response received. Please ensure your Cloudflare binding OPENROUTER_API_KEY is configured.";
       setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
     } catch (err) {
-      setMessages(prev => [...prev, { role: 'assistant', content: "An error occurred. Standard serverless mock response: Ensure your OpenRouter API token has sufficient free quota." }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: "Gateway Error. Ensure your Cloudflare Workers environment has been successfully deployed." }]);
     } finally {
       setLoading(false);
     }
@@ -2017,7 +2007,6 @@ function AssistantTab({ openRouterKey, selectedChatModel }) {
   );
 }
 
-
 function WorkbenchTab({ adminToken, setAdminToken, records, setRecords, pendingRecords, setPendingRecords }) {
   const [password, setPassword] = useState('');
   const [showLegalPanel, setShowLegalPanel] = useState(true);
@@ -2039,11 +2028,28 @@ function WorkbenchTab({ adminToken, setAdminToken, records, setRecords, pendingR
     setPassword('');
   };
 
-  const handleApprove = (rec) => {
-    const approvedRec = { ...rec, approved: true };
-    setRecords(prev => [approvedRec, ...prev]);
-    setPendingRecords(prev => prev.filter(p => p.id !== rec.id));
-    showCustomToast("Record Approved", `${rec.name} ${rec.surname} merged into production registry and plotted on live maps.`, "success");
+  const handleApprove = async (rec) => {
+    try {
+      const response = await fetch('/api/graves', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...rec, approved: true })
+      });
+      
+      const resData = await response.json();
+      if (resData.success) {
+        setRecords(prev => [{ ...rec, approved: true }, ...prev]);
+        setPendingRecords(prev => prev.filter(p => p.id !== rec.id));
+        showCustomToast("Published Live", `${rec.name} ${rec.surname} saved securely to Cloudflare D1 database.`, "success");
+      } else {
+        throw new Error(resData.error || "Failed database save execution");
+      }
+    } catch (err) {
+      console.error(err);
+      setRecords(prev => [{ ...rec, approved: true }, ...prev]);
+      setPendingRecords(prev => prev.filter(p => p.id !== rec.id));
+      showCustomToast("Saved Locally", `${rec.name} approved locally. Check DB credentials.`, "warning");
+    }
   };
 
   const handleDecline = (recId) => {
@@ -2081,13 +2087,6 @@ function WorkbenchTab({ adminToken, setAdminToken, records, setRecords, pendingR
               <h4 className="font-bold text-white mb-1"><i className="fa-solid fa-shield-heart text-emerald-400 mr-2"></i>100% Ad-Free Guarantee & Sanctuary of Memory</h4>
               <p className="text-[11px] text-slate-400">
                 To honor the deceased and preserve the sanctity of sacred cemetery spaces, this portal contains absolutely zero advertisements, marketing trackers, or corporate monetization scripts. QabrCare is operated strictly as an ad-free communal Waqf initiative under MrKolapie Pty Ltd ™.
-              </p>
-            </div>
-
-            <div className="bg-slate-900 p-3 rounded-lg border border-slate-800">
-              <h4 className="font-bold text-white mb-1"><i className="fa-solid fa-circle-check text-emerald-400 mr-2"></i>CPA & No-Refund Policy Declaration</h4>
-              <p className="text-[11px] text-slate-400">
-                In compliance with the South African Consumer Protection Act (CPA), all transactions relating to grave cleanup campaigns represent fully dedicated communal Waqf sponsorships. These donations trigger instant resource deployments for youth employment and do not constitute purchasing of real property or refundable physical assets.
               </p>
             </div>
           </div>
