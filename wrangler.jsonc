@@ -1,14 +1,21 @@
 {
-"name": "qabrcare-portal",
-"compatibility_date": "2026-07-11",
-"main": "./src/worker.js",
-"compatibility_flags": [
-"nodejs_compat"
-],
-"assets": {
-"directory": "./dist/",
-"binding": "ASSETS"
-},
-"preview_urls": true,
-"workers_dev": true
+  "name": "qabrcare-portal",
+  "compatibility_date": "2026-07-11",
+  "main": "./src/worker.js",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": "./dist/",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "qabrcare-db",
+      "database_id": "fdbea438-87c2-4ddb-a7e7-cc8ba2852def"
+    }
+  ],
+  "preview_urls": true,
+  "workers_dev": true
 }
